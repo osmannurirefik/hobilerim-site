@@ -1,76 +1,35 @@
-/* Genel stiller */
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+/* Genel Ayarlar */
+body { font-family: 'Segoe UI', sans-serif; margin: 20px; background: #f0f2f5; }
+
+/* Menü */
+nav { background: #0052cc; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; }
+nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+nav a:hover { color: #ffcc00; }
+
+/* --- Harita Görünürlüğü İçin Kritik --- */
+#map { 
+    height: 450px; 
+    width: 100%; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin: 20px 0;
+    z-index: 1; /* Diğer elementlerin altında kalmasın */
 }
 
-nav a {
-  margin-right: 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Harita */
-#map {
-  height: 400px;
-  margin-top: 20px;
-}
-
-/* Fade animasyon */
+/* --- Animasyonlar --- */
 .fade-in {
-  animation: fadeIn 2s ease-in;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Uzaktan Algılama Animasyonu */
-.space {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 40px auto;
-}
+/* Uydu Yörünge Alanı */
+.space { position: relative; width: 200px; height: 200px; margin: 20px auto; }
+.earth { width: 60px; height: 60px; background: #2271b1; border-radius: 50%; position: absolute; top: 70px; left: 70px; box-shadow: 0 0 20px #4facfe; }
+.orbit { width: 180px; height: 180px; border: 1px dashed #444; border-radius: 50%; position: absolute; top: 10px; left: 10px; animation: rotate 5s linear infinite; }
+.satellite { width: 12px; height: 12px; background: #333; position: absolute; top: -6px; left: 84px; border-radius: 2px; }
 
-.earth {
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(circle at 30% 30%, #4facfe, #0052cc);
-  border-radius: 50%;
-  position: absolute;
-  top: 60px;
-  left: 60px;
-}
-
-.orbit {
-  width: 200px;
-  height: 200px;
-  border: 1px dashed #aaa;
-  border-radius: 50%;
-  position: absolute;
-  animation: rotateOrbit 6s linear infinite;
-}
-
-.satellite {
-  width: 16px;
-  height: 16px;
-  background: #555;
-  position: absolute;
-  top: -8px;
-  left: 92px;
-  border-radius: 3px;
-}
-
-@keyframes rotateOrbit {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Profil fotoğrafı */
-img {
-  display: block;
-  margin-top: 20px;
-  border-radius: 50%;
-}
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
