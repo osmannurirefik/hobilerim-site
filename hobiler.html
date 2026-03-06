@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Hobilerim</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+
+<!-- Arka plan -->
+<div class="stars"></div>
+<div class="earth"></div> <!-- Uydu görüntüsü sağdan sola kayıyor -->
+
+<header>
+  <h1 class="logo">Hobilerim</h1>
+  <nav>
+    <a href="index.html">Hakkımda</a>
+    <a href="hobiler.html">Hobilerim</a>
+    <a href="iletisim.html">İletişim</a>
+  </nav>
+</header>
+
+<!-- Şeffaf Kart -->
+<section class="card">
+  <h2>Hobilerim</h2>
+  <img src="profil.jpg" alt="Profil Resmi" class="profil-resim">
+  <ul class="hobi-list">
+    <li>⚽ Futbol</li>
+    <li>🚶 Doğa Yürüyüşü</li>
+    <li>🎣 Balık Tutmak</li>
+  </ul>
+</section>
+
+<!-- Harita – küçültülmüş -->
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="map.js"></script>
+
+</body>
+</html>

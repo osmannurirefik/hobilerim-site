@@ -1,35 +1,96 @@
-/* Genel Ayarlar */
-body { font-family: 'Segoe UI', sans-serif; margin: 20px; background: #f0f2f5; }
-
-/* Menü */
-nav { background: #0052cc; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; }
-nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-nav a:hover { color: #ffcc00; }
-
-/* --- Harita Görünürlüğü İçin Kritik --- */
-#map { 
-    height: 450px; 
-    width: 100%; 
-    border-radius: 12px; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    margin: 20px 0;
-    z-index: 1; /* Diğer elementlerin altında kalmasın */
+body{
+  margin:0;
+  font-family: Arial;
+  color:white;
+  overflow-x:hidden;
+  background:black;
 }
 
-/* --- Animasyonlar --- */
-.fade-in {
-    animation: fadeIn 1.5s ease-in-out;
+/* Yıldızlar */
+.stars {
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:url("https://www.transparenttextures.com/patterns/stardust.png");
+  z-index:-5;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Uydu görüntüsü (dünya) */
+.earth {
+  position:fixed;
+  width:300%;
+  height:100%;
+  background:url("https://eoimages.gsfc.nasa.gov/images/imagerecords/79000/79765/dnb_land_ocean_ice.2012.3600x1800.jpg");
+  background-size:cover;
+  animation:earthMove 120s linear infinite;
+  z-index:-4;
 }
 
-/* Uydu Yörünge Alanı */
-.space { position: relative; width: 200px; height: 200px; margin: 20px auto; }
-.earth { width: 60px; height: 60px; background: #2271b1; border-radius: 50%; position: absolute; top: 70px; left: 70px; box-shadow: 0 0 20px #4facfe; }
-.orbit { width: 180px; height: 180px; border: 1px dashed #444; border-radius: 50%; position: absolute; top: 10px; left: 10px; animation: rotate 5s linear infinite; }
-.satellite { width: 12px; height: 12px; background: #333; position: absolute; top: -6px; left: 84px; border-radius: 2px; }
+@keyframes earthMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
-@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+/* Header */
+header {
+  text-align:center;
+  padding:30px;
+}
+.logo {
+  font-size:40px;
+  animation:glow 3s infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow:0 0 5px #00ffd5; }
+  to   { text-shadow:0 0 25px #00ffd5; }
+}
+nav a {
+  margin:15px;
+  color:white;
+  text-decoration:none;
+  font-size:18px;
+  position:relative;
+}
+nav a::after {
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:#00ffd5;
+  transition:0.4s;
+}
+nav a:hover::after { width:100%; }
+
+/* Şeffaf Kart */
+.card {
+  width:90%;
+  max-width:700px;
+  margin:auto;
+  padding:40px;
+  background:transparent;
+  border-radius:20px;
+  animation:fadeUp 1s;
+  text-align:center;
+}
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(40px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.profil-resim {
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  display:block;
+  margin:20px auto;
+  border:3px solid #00ffd5;
+}
+
+/* Harita – küçültülmüş */
+#map {
+  height:350px;
+  margin:20px auto;
+  max-width:80%;
+  border-radius:15px;
+}
